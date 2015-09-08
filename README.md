@@ -1,4 +1,4 @@
-[![Layout build info](https://imagelayers.io/?images=sahsu%2Fdocker-opsmanager:latest)
+[![](https://badge.imagelayers.io/sahsu/docker-opsmanager:latest.svg)](https://imagelayers.io/?images=sahsu/docker-opsmanager:latest 'Get your own badge on imagelayers.io')
 # MongoDB Ops Manager for docker
 - [Intro](#Intro)
   - [Version](#Version)
