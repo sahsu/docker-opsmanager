@@ -14,19 +14,22 @@
 ## Version
   Currently Version: `1.8.1.290-1`
 # Installation
+  1. you should get ready on docker install on your hosts and run 
   ```bash
   docker run --name opsmanager -d sahsu/opsmanager
   ```
+  1. it will (1) pull sahsu/opsmanager from Docker Hub (2) run it as background.
   1. and waiting for 3 - 5 mins ( depends on your instance type ) and open `http://{YOUR_DOCKER_HOST_IP}:{YOUR_OPSMANAGER_PORT}`
-  2. default port - 8080 and you can add -p 18080:8080 on docker run command for change your port.
+  2. default port - 8080 and you can add -p 18080:8080 on docker run command to change your port.
 
 # QuickStart
-  1. once you run docker images and waiting for 3 - 5 mins you can open browser to open your ops manager - `http://{YOUR_DOCKER_HOST_IP}:{YOUR_OPSMANAGER_PORT}`
-  2. for default configure the mongodb for application and backup will running on same instance so you don't need to do anything configure update, for separe Mongodb please check on (#Configure)
+  1. after you run docker images and waiting for 3 - 5 mins you can open browser to open your ops manager - `http://{YOUR_DOCKER_HOST_IP}:{YOUR_OPSMANAGER_PORT}`
+  2. for default configure the mongodb for application and backup will running on same instance so you don't need to do anything configure update, for separe Mongodb please check on [Configure](#Configure)
 
 # Configure
-  1. Ops Manager designed to serverless means your app is only app, all data is stored on MongoDB
+  1. Ops Manager designed to serverless means your app is only app, all data is stored on Application MongoDB
   2. By default, if you don't assign **OPSMANAGER_MONGO_APP** then script will create two mongo in local running with port : 27017 & 27018
+
 ## Each Env means
   - **OPSMANAGER_CFG**: the main ops manager cfg, you should keep this are same.
   - **OPSMANAGER_BACKUPCFG**: same as **OPSMANAGER_CFG**.
