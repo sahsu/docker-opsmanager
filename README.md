@@ -1,3 +1,4 @@
+[![Layout build info](https://imagelayers.io/?images=sahsu%2Fdocker-opsmanager:latest)
 # MongoDB Ops Manager for docker
 - [Intro](#Intro)
   - [Version](#Version)
