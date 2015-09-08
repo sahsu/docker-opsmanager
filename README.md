@@ -31,6 +31,13 @@
 # Configure
   1. Ops Manager designed to serverless means your app is only app, all data is stored on Application MongoDB
   2. By default, if you don't assign **OPSMANAGER_MONGO_APP** then script will create two mongo in local running with port : 27017 & 27018
+  1. if you are going to manually deploy Ops Manger with 2 mongo you can use sample code:
+
+  ```bash
+  sudo docker run --name appmongo -d mongo:3
+  sudo docker  run --name backupmongo -d mongo:3
+  sudo docker  run --name opsmanager --link appmongo:appmongo --link backupmongo:backupmongo -p 18080:8080 -e 'OPSMANAGER_MONGO_APP=appmongo:27017' -e 'OPSMANAGER_BACKUPMONGO=backupmongo:27017' -e 'OPSMANAGER_CENTRALUR=YOUR_FQDN' -e 'OPSMANAGER_CENTRALURLPORT=YOUR_FQDN_PORT' sahsu/docker-opsmanager
+  ```
 
 ## Each Env means
   - **OPSMANAGER_CFG**: the main ops manager cfg, you should keep this are same.

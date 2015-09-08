@@ -5,14 +5,14 @@ backupmongo:
   image: mongo:3
 
 opsmanager:
-  image: sahsu/opsmanager
+  image: sahsu/docker-opsmanager
   links:
     - appmongo:appmongo
     - backupmongo:backupmongo
   ports:
-    - "8080:8080"
+    - "18080:8080"
   environment:
     - OPSMANAGER_MONGO_APP=appmongo:27017
     - OPSMANAGER_BACKUPMONGO=backupmongo:27017
-    - OPSMANAGER_CENTRALUR=localhost
-    - OPSMANAGER_CENTRALURLPORT=8080
+    - OPSMANAGER_CENTRALUR=YOUR_FQDN
+    - OPSMANAGER_CENTRALURLPORT=YOUR_FQDN_PORT
