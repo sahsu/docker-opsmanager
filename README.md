@@ -15,6 +15,7 @@
   Currently Version: `1.8.1.290-1`
 # Installation
   1. you should get ready on docker install on your hosts and run 
+
   ```bash
   docker run --name opsmanager -d sahsu/opsmanager
   ```
@@ -50,6 +51,7 @@
 
 ## Database
   1. You can use `docker-compose.yml` to quick start up with app x 1 mongodb x 2 ( for app & backup purpose )
+
   ```bash
   cd to docker-opsmanager/
   sudo docker-compose up
