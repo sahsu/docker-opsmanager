@@ -49,12 +49,13 @@
   - **OPSMANAGER_BACKUPPATH**: default backup daemon storage databse path
 
 ## Database
-  1. You can use docker-compose.yml to quick start up with app x 1 mongodb x 2 ( for app & backup purpose )
-  ``` bash
+  1. You can use `docker-compose.yml` to quick start up with app x 1 mongodb x 2 ( for app & backup purpose )
+  ```bash
   cd to docker-opsmanager/
   sudo docker-compose up
   ```
   2. and you can check on (docker-compose.yml) for more detail information and made your docker-compose configure file.
+
 # Maintenance
   * You only upgrade Ops Manager for maintenance but you can easier switch by pull different tag on sahsu/opsmanager ( now default latest = (Version) )
 
