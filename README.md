@@ -60,7 +60,7 @@
   2. and you can check on (docker-compose.yml) for more detail information and made your docker-compose configure file.
 
 # Maintenance
-  * You only upgrade Ops Manager for maintenance but you can easier switch by pull different tag on sahsu/opsmanager ( now default latest = (Version) )
+  * You only upgrade Ops Manager for maintenance but you can easier switch by pull different tag on sahsu/opsmanager ( now only have newest )
 
 # Referenace
   1. [Ops Manager newest Manual](https://docs.opsmanager.mongodb.com/current/)
