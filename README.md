@@ -19,6 +19,7 @@
   ```
   * and waiting for 3 - 5 mins ( depends on your instance type ) and open http://{YOUR_DOCKER_HOST_IP}:{YOUR_OPSMANAGER_PORT} 
   * default port - 8080 and you can add -p 18080:8080 on docker run command for change your port.
+
 # QuickStart
   once you run docker images and waiting for 3 - 5 mins you can open browser to open your ops manager - http://{YOUR_DOCKER_HOST_IP}:{YOUR_OPSMANAGER_PORT}
   for default configure the mongodb for application and backup will running on same instance so you don't need to do anything configure update, for separe Mongodb please check on #Configure
