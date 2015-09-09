@@ -38,9 +38,15 @@ echo 'enabled=1'  >> /etc/yum.repos.d/10gen.repo && \
 yum install -y mongodb-org-server && yum clean all
 
 # INSTALL few related package
-RUN yum install python-setuptools sudo nmap telnet openssl net-tools -y \
-    && easy_install supervisor \
-    && yum remove -y wget && yum clean all
+RUN yum install -y python-setuptools \
+                sudo \
+                nmap \
+                telnet \
+                openssl \
+                net-tools \
+                postfix \
+    && pip install --no-cache-dir supervisor \
+    && yum clean all
 
 EXPOSE ${OPSMANAGER_CENTRALURLPORT}/tcp ${OPSMANAGER_BACKUPURLPORT}/tcp
 VOLUME [${OPSMANAGER_APPLOG}, ${OPSMANAGER_BACKUPLOG}]
@@ -48,6 +54,8 @@ VOLUME [${OPSMANAGER_APPLOG}, ${OPSMANAGER_BACKUPLOG}]
 COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 COPY entrypoint.sh /sbin/entrypoint.sh
 RUN chmod 755 /sbin/entrypoint.sh
+COPY startup.sh /startup.sh
+RUN chmod 755 startup.sh
 
 ENTRYPOINT ["/sbin/entrypoint.sh"]
 CMD ["app:start"]

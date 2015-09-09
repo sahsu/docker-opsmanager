@@ -3,6 +3,7 @@
 - [Intro](#Intro)
   - [Version](#Version)
   - [ChangeLog](Changelog.md)
+- [Prerequisites](#Prerequisites)
 - [Installation](#Installation)
 - [QuickStart](#QuickStart)
 - [Configure](#Configure)
@@ -14,6 +15,10 @@
   Dockerfile / Docker-compose file to build a MongoDB Ops Manager container image.
 ## Version
   Currently Version: `1.8.1.290-1`
+# Prerequisites
+  1. Please check [Ops Manager Installation Guide](https://docs.opsmanager.mongodb.com/current/installation/) for avoid time wasting specialy [Ops Manager Hardware and Software Requirements](https://docs.opsmanager.mongodb.com/current/core/requirements/)
+  1. 4+ Core / 16G Memory will prefer - use m4.xlarge as default.
+  
 # Installation
   1. you should get ready on docker install on your hosts and run 
 
@@ -67,7 +72,9 @@
   2. and you can check on (docker-compose.yml) for more detail information and made your docker-compose configure file.
 
 # Maintenance
-  * You only upgrade Ops Manager for maintenance but you can easier switch by pull different tag on sahsu/opsmanager ( now only have newest )
+  - ** app:start **: start Ops Manager, default action
+  - ** bash **: start bash, run it with `docker run -it` you can enter bash and run `/sbin/entrypoint.sh` for see manually startups Ops Manager.
+
 
 # Referenace
   1. [Ops Manager newest Manual](https://docs.opsmanager.mongodb.com/current/)
