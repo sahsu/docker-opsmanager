@@ -45,7 +45,7 @@ RUN yum install -y python-setuptools \
                 openssl \
                 net-tools \
                 postfix \
-    && pip install --no-cache-dir supervisor \
+    && easy_install supervisor \
     && yum clean all
 
 EXPOSE ${OPSMANAGER_CENTRALURLPORT}/tcp ${OPSMANAGER_BACKUPURLPORT}/tcp
