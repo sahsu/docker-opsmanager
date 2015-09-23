@@ -48,7 +48,9 @@ RUN yum install -y python-setuptools \
                 postfix \
     && easy_install supervisor \
     && yum clean all \
-    && cat /etc/sudoers| grep -ivE requiretty > /tmp/sudoers && mv /tmp/sudoers /etc/sudoers
+    && cat /etc/sudoers| grep -ivE requiretty > /tmp/sudoers && mv /tmp/sudoers /etc/sudoers \
+    && ln -s /opt/mongodb/mms/logs /root/logs \
+    && ln -s /opt/mongodb/mms-backup-daemon/logs blogs 
 
 EXPOSE ${OPSMANAGER_CENTRALURLPORT}/tcp ${OPSMANAGER_BACKUPURLPORT}/tcp
 VOLUME [${OPSMANAGER_APPLOG}, ${OPSMANAGER_BACKUPLOG}]
