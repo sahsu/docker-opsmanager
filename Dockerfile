@@ -35,7 +35,7 @@ echo 'name=10gen Repository' >> /etc/yum.repos.d/10gen.repo && \
 echo 'baseurl=http://downloads-distro.mongodb.org/repo/redhat/os/x86_64' >> /etc/yum.repos.d/10gen.repo && \
 echo 'gpgcheck=0' >> /etc/yum.repos.d/10gen.repo && \
 echo 'enabled=1'  >> /etc/yum.repos.d/10gen.repo && \
-yum install -y mongodb-org-server && yum clean all
+yum install -y mongodb-org-server mongodb-org-shell && yum clean all
 
 # INSTALL few related package
 RUN yum install -y python-setuptools \
