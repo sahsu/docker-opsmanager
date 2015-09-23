@@ -17,15 +17,16 @@
   Currently Version: `1.8.1.290-1`
 # Prerequisites
   1. Please check [Ops Manager Installation Guide](https://docs.opsmanager.mongodb.com/current/installation/) for avoid time wasting specialy [Ops Manager Hardware and Software Requirements](https://docs.opsmanager.mongodb.com/current/core/requirements/)
-  1. 4+ Core / 16G Memory will prefer - use m4.xlarge as default.
+  1. 4+ Core / 16G Memory will prefer - use m3.xlarge as default.
+  1. for built-in Mongo need separe disk spec - 10G i will prefer for this case.
   
 # Installation
   1. you should get ready on docker install on your hosts and run 
 
   ```bash
-  docker run --name opsmanager -d sahsu/opsmanager
+  docker run -d -v /mnt/data:/data sahsu/docker-opsmanager
   ```
-  1. it will (1) pull sahsu/opsmanager from Docker Hub (2) run it as background.
+  1. it will (1) pull sahsu/docker-opsmanager from Docker Hub (2) run it as background.
   1. and waiting for 3 - 5 mins ( depends on your instance type ) and open `http://{YOUR_DOCKER_HOST_IP}:{YOUR_OPSMANAGER_PORT}`
   2. default port - 8080 and you can add -p 18080:8080 on docker run command to change your port.
 
@@ -41,15 +42,15 @@
   ```bash
   sudo docker run --name appmongo -d mongo:3
   sudo docker run --name backupmongo -d mongo:3
-  sudo docker run --name opsmanager  \
+  sudo docker run -d -v /mnt/data:/data  \
      --link appmongo:appmongo \
      --link backupmongo:backupmongo \
-     -p 18080:8080 \
+     -p 8080:8080 \
      -e 'OPSMANAGER_MONGO_APP=appmongo:27017' \
      -e 'OPSMANAGER_BACKUPMONGO=backupmongo:27017' \
      -e 'OPSMANAGER_CENTRALUR=10.23.10.114' \
      -e 'OPSMANAGER_CENTRALURLPORT=18080' \
-     sahsu/docker-opsmanager bash
+     sahsu/docker-opsmanager 
   ```
 
 ## Each Env means
