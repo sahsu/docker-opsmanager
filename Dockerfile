@@ -23,6 +23,7 @@ ENV OPSMANAGER_VERSION=1.8.1.290-1 \
 # sample Ops manager download url: https://downloads.mongodb.com/on-prem-mms/rpm/mongodb-mms-1.8.1.290-1.x86_64.rpm
 # backup : https://downloads.mongodb.com/on-prem-mms/rpm/mongodb-mms-backup-daemon-1.8.1.290-1.x86_64.rpm
 
+
 # INSTALL MMS & MMS-BACKUP
 RUN  curl -OL https://downloads.mongodb.com/on-prem-mms/rpm/mongodb-mms-${OPSMANAGER_VERSION}.x86_64.rpm \
     && rpm -ivh mongodb-mms-${OPSMANAGER_VERSION}.x86_64.rpm && rm -f mongodb-mms-${OPSMANAGER_VERSION}.x86_64.rpm \
@@ -46,7 +47,8 @@ RUN yum install -y python-setuptools \
                 net-tools \
                 postfix \
     && easy_install supervisor \
-    && yum clean all
+    && yum clean all \
+    && cat /etc/sudoers| grep -ivE requiretty > /tmp/sudoers && mv /tmp/sudoers /etc/sudoers
 
 EXPOSE ${OPSMANAGER_CENTRALURLPORT}/tcp ${OPSMANAGER_BACKUPURLPORT}/tcp
 VOLUME [${OPSMANAGER_APPLOG}, ${OPSMANAGER_BACKUPLOG}]

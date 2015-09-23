@@ -13,8 +13,8 @@ if [ $? -eq 0 ]; then
   if [ $? -eq 0 ]; then
     echo 'local mongo is running'
   else
-    mkdir -p /data/appdb; chown -R mongod:mongod /data/appdb; nohup sudo -u mongod mongod --port 27017 --dbpath /data/appdb --logpath /data/appdb/mongodb.log --nojournal &
-    mkdir -p /data/backupdb; chown -R mongod:mongod /data/backupdb; nohup sudo -u mongod mongod --port 27018 --dbpath /data/backupdb --logpath /data/backupdb/mongodb.log --nojournal &
+    mkdir -p /data/appdb; chown -R mongod:mongod /data/appdb; nohup sudo -u mongod mongod --port 27017 --dbpath /data/appdb --logpath /data/appdb/mongodb.log &
+    mkdir -p /data/backupdb; chown -R mongod:mongod /data/backupdb; nohup sudo -u mongod mongod --port 27018 --dbpath /data/backupdb --logpath /data/backupdb/mongodb.log &
     until [ `nmap -Pn -p27017 $IP | grep open > /dev/null; echo $?` -eq 0 ]; do echo 'sleeping for 27017'; sleep 1; done
     until [ `nmap -Pn -p27018 $IP | grep open > /dev/null; echo $?` -eq 0 ]; do echo 'sleeping for 27018'; sleep 1; done
     fi
