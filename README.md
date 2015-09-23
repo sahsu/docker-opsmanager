@@ -40,8 +40,16 @@
 
   ```bash
   sudo docker run --name appmongo -d mongo:3
-  sudo docker  run --name backupmongo -d mongo:3
-  sudo docker  run --name opsmanager --link appmongo:appmongo --link backupmongo:backupmongo -p 18080:8080 -e 'OPSMANAGER_MONGO_APP=appmongo:27017' -e 'OPSMANAGER_BACKUPMONGO=backupmongo:27017' -e 'OPSMANAGER_CENTRALUR=YOUR_FQDN' -e 'OPSMANAGER_CENTRALURLPORT=YOUR_FQDN_PORT' sahsu/docker-opsmanager
+  sudo docker run --name backupmongo -d mongo:3
+  sudo docker run --name opsmanager \
+     --link appmongo:appmongo \
+     --link backupmongo:backupmongo \
+     -p 18080:8080 \
+     -e 'OPSMANAGER_MONGO_APP=appmongo:27017' \
+     -e 'OPSMANAGER_BACKUPMONGO=backupmongo:27017' \
+     -e 'OPSMANAGER_CENTRALUR=10.23.10.114' \
+     -e 'OPSMANAGER_CENTRALURLPORT=18080' \
+     sahsu/docker-opsmanager bash
   ```
 
 ## Each Env means
