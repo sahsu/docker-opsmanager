@@ -41,7 +41,7 @@
   ```bash
   sudo docker run --name appmongo -d mongo:3
   sudo docker run --name backupmongo -d mongo:3
-  sudo docker run --name opsmanager \
+  sudo docker run --name opsmanager  \
      --link appmongo:appmongo \
      --link backupmongo:backupmongo \
      -p 18080:8080 \
