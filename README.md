@@ -18,7 +18,7 @@
 # Prerequisites
   1. Please check [Ops Manager Installation Guide](https://docs.opsmanager.mongodb.com/current/installation/) for avoid time wasting specialy [Ops Manager Hardware and Software Requirements](https://docs.opsmanager.mongodb.com/current/core/requirements/)
   1. 4+ Core / 16G Memory will prefer - use m3.xlarge as default.
-  1. for built-in Mongo need separe disk spec - 10G i will prefer for this case.
+  1. *for built-in Mongo need separe disk spec - 10G i will prefer for this case.*
   
 # Installation
   1. you should get ready on docker install on your hosts and run 
