@@ -29,7 +29,8 @@ RUN  curl -OL https://downloads.mongodb.com/on-prem-mms/rpm/mongodb-mms-${OPSMAN
     && rpm -ivh mongodb-mms-${OPSMANAGER_VERSION}.x86_64.rpm && rm -f mongodb-mms-${OPSMANAGER_VERSION}.x86_64.rpm \
     && curl -OL https://downloads.mongodb.com/on-prem-mms/rpm/mongodb-mms-backup-daemon-${OPSMANAGER_VERSION}.x86_64.rpm \
     && rpm -ivh mongodb-mms-backup-daemon-${OPSMANAGER_VERSION}.x86_64.rpm && rm -f mongodb-mms-backup-daemon-${OPSMANAGER_VERSION}.x86_64.rpm \
-    && cd /opt/mongodb/ && rm -fr mms-backup-daemon/jdk && cd mms-backup-daemon && ln -s ../mms/jdk .
+    && cd /opt/mongodb/ && rm -fr mms-backup-daemon/jdk && cd mms-backup-daemon && ln -s ../mms/jdk . \
+    && cd /opt/mongodb && rm -fr mms-backup-daemon/lib && cd mms-backup-daemon && ln -s ../mms/lib . 
 
 RUN echo '[10gen] ' >> /etc/yum.repos.d/10gen.repo && \
 echo 'name=10gen Repository' >> /etc/yum.repos.d/10gen.repo && \
@@ -41,6 +42,7 @@ yum install -y mongodb-org-server mongodb-org-shell && yum clean all
 # INSTALL few related package
 RUN yum install -y python-setuptools \
                 sudo \
+                dstat \
                 nmap \
                 telnet \
                 openssl \
@@ -50,7 +52,8 @@ RUN yum install -y python-setuptools \
     && yum clean all \
     && cat /etc/sudoers| grep -ivE requiretty > /tmp/sudoers && mv /tmp/sudoers /etc/sudoers \
     && ln -s /opt/mongodb/mms/logs /root/logs \
-    && ln -s /opt/mongodb/mms-backup-daemon/logs blogs 
+    && ln -s /opt/mongodb/mms-backup-daemon/logs /root/blogs  \
+    && rpm -ivh http://pkgs.repoforge.org/htop/htop-0.8.3-1.el6.rf.x86_64.rpm && yum clean all
 
 EXPOSE ${OPSMANAGER_CENTRALURLPORT}/tcp ${OPSMANAGER_BACKUPURLPORT}/tcp
 VOLUME [${OPSMANAGER_APPLOG}, ${OPSMANAGER_BACKUPLOG}]
