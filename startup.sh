@@ -1,5 +1,6 @@
 #!/usr/bin/bash -x
 
+postfix start
 #check mms status
 MMS=/etc/init.d/mongodb-mms
 MMSBACKUP=/etc/init.d/mongodb-mms-backup-daemon
