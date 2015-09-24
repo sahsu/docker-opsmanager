@@ -53,6 +53,8 @@ RUN yum install -y python-setuptools \
     && cat /etc/sudoers| grep -ivE requiretty > /tmp/sudoers && mv /tmp/sudoers /etc/sudoers \
     && ln -s /opt/mongodb/mms/logs /root/logs \
     && ln -s /opt/mongodb/mms-backup-daemon/logs /root/blogs  \
+    && ln -s /data/appdb/mongodb.log /root/applog \
+    && ln -s /data/backupdb/mongodb.log /root/backuplog \
     && rpm -ivh http://pkgs.repoforge.org/htop/htop-0.8.3-1.el6.rf.x86_64.rpm && yum clean all
 
 EXPOSE ${OPSMANAGER_CENTRALURLPORT}/tcp ${OPSMANAGER_BACKUPURLPORT}/tcp
