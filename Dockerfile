@@ -1,6 +1,6 @@
 From centos
 MAINTAINER sahsu.mobi@gmail.com
-ENV OPSMANAGER_VERSION=1.8.1.290-1 \
+ENV OPSMANAGER_VERSION=1.8.2.312-1 \
     OPSMANAGER_CFG=/opt/mongodb/mms/conf/conf-mms.properties \
     OPSMANAGER_BACKUPCFG=/opt/mongodb/mms-backup-daemon/conf/conf-daemon.properties \
     OPSMANAGER_MONGO_APP=localhost:27017 \
