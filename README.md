@@ -14,7 +14,10 @@
 # Intro
   Dockerfile / Docker-compose file to build a MongoDB Ops Manager container image.
 ## Version
-  Currently Version: `1.8.1.290-1`
+  1. Latest Version: `1.8.2.312-1`
+  1. 1.8.1 - pull sahsu/docker-opsmanager:1.8.1
+  1. 1.8.2 - pull sahsu/docker-opsmanager:1.8.2
+
 # Prerequisites
   1. Please check [Ops Manager Installation Guide](https://docs.opsmanager.mongodb.com/current/installation/) for avoid time wasting specialy [Ops Manager Hardware and Software Requirements](https://docs.opsmanager.mongodb.com/current/core/requirements/)
   1. 4+ Core / 16G Memory will prefer - use m3.xlarge as default.
