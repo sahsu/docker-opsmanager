@@ -49,7 +49,7 @@
      -p 8080:8080 \
      -e 'OPSMANAGER_MONGO_APP=appmongo:27017' \
      -e 'OPSMANAGER_BACKUPMONGO=backupmongo:27017' \
-     -e 'OPSMANAGER_CENTRALUR=10.23.10.114' \
+     -e 'OPSMANAGER_CENTRALURL=10.23.10.114' \
      -e 'OPSMANAGER_CENTRALURLPORT=18080' \
      sahsu/docker-opsmanager 
   ```
